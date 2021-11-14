@@ -1,0 +1,83 @@
+<div class="container px-5 px-sm-0">
+  <div class="row p-3 m-3">
+    <div class="grey-box px-3">
+      <h3>会員情報編集</h3>
+    </div>
+  </div>
+
+  <% if @end_user.errors.any? %>
+    <%=  render "layouts/errors",obj:@end_user %>
+  <% end %>
+
+  <%= form_with model: @end_user, url: customers_path, local: true do |f| %>
+    <div class="row m-2">
+      <div class="col-3">
+        名前
+      </div>
+      <div class="col-3">
+        <%= f.text_field :family_name, autofocus: true %>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :first_name, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-3">
+        フリガナ
+      </div>
+      <div class="col-3">
+        <%= f.text_field :family_name_kana, autofocus: true %>
+      </div>
+      <div class="col-3">
+        <%= f.text_field :first_name_kana, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-3">
+        郵便番号
+      </div>
+      <div class="col-3">
+        <%= f.text_field :zip_code, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-3">
+        住所
+      </div>
+      <div class="col-6">
+        <%= f.text_field :address, autofocus: true, class:"full-width"%>
+      </div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-3">
+        電話番号
+      </div>
+      <div class="col-3">
+        <%= f.text_field :phone_number, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row m-2">
+      <div class="col-3">
+        メールアドレス
+      </div>
+      <div class="col-3">
+        <%= f.text_field :email, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row mt-4 m-2 ">
+      <div class="col-3 offset-2">
+        <div class="actions">
+          <%= f.submit "編集内容を保存" ,class:"btn btn-success px-2" %>
+        </div>
+      </div>
+      <div class="col-3">
+          <%= link_to "退会する", confirm_customers_path, class:"btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>

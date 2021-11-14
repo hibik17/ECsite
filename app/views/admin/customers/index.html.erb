@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mx-5 my-3">
+    <div class="grey-box px-3">
+      <h3>会員一覧</h3>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <table class="table mx-auto">
+      <thead class="table-secondary">
+        <tr>
+          <th class="fw-bold">会員id</th>
+          <th class="text-deciration-underline">氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @end_users.each do |end_user| %>
+          <tr>
+            <td><%= end_user.id %></td>
+            <td class="text-decoration-underline"><%= end_user.family_name %><%= end_user.first_name %></td>
+            <td><%= end_user.email %></td>
+            <td>
+              <% if end_user.is_unsubscribed %>
+                <span class="unvalid-status">退会</span>
+              <% else %>
+                <span class="valid-status">有効</span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

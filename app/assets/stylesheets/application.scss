@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.logo-image {
+  background: url("logo.jpg") no-repeat left center;
+  background-size: contain;
+  height: 80px;
+  width: 250px;
+}
+
+.navbar-collapse li{
+  margin: 0 10px;
+  background-color: grey;
+}
+
+.grey-box{
+  background-color: #dddddd;
+}
+
+.table-bordered td{
+  border: 1px solid #000000;
+}
+
+table .grey-box{
+  width: 30%;
+}
+
+#notice{
+  color: lightgreen ;
+}
+
+#error{
+  color: red ;
+}
+
+.full-width{
+  width: 100%;
+}
+
+
+.valid-status{
+  color: green;
+}
+
+.unvalid-status{
+  color: grey;
+  opacity: 0.7;
+}
+
+
+.fa-plus{
+  color: black;
+  font-size: 150%;
+  line-height: 60px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  letter-spacing: 0;
+}
+
+.btn-circle-3d{
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+.attachment-image{
+}
+
+.item-name{
+  font-size: 20px;
+}
+
+p .price{
+  font-size: 24px;
+}
+
+.full-bg{
+  width: 100%;
+  margin:0;
+}

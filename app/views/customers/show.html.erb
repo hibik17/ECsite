@@ -1,0 +1,68 @@
+<div class="container px-5 px-sm-0">
+
+  <div class="row mt-5">
+    <div class="col-auto offset-2">
+      <div class="grey-box mb-auto px-2">
+        <h2>マイページ</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-3">
+      <h3>登録情報</h3>
+    </div>
+    <div class="col-3">
+      <%= link_to "編集する", edit_customers_path, class:"btn btn-success px-5" %>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-9">
+      <table class="table table-bordered mb-auto">
+        <tr>
+          <td class="grey-box">氏名</td>
+          <td><%= current_end_user.family_name %>　<%= current_end_user.first_name %></td>
+        </tr>
+        <tr>
+          <td class="grey-box">カナ</td>
+          <td><%= current_end_user.family_name_kana %>　<%= current_end_user.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td class="grey-box">郵便番号</td>
+          <td><%= current_end_user.zip_code %></td>
+        </tr>
+        <tr>
+          <td class="grey-box">住所</td>
+          <td><%= current_end_user.address %></td>
+        </tr>
+        <tr>
+          <td class="grey-box">電話番号</td>
+          <td><%= current_end_user.phone_number %></td>
+        </tr>
+        <tr>
+          <td class="grey-box">メールアドレス</td>
+          <td><%= current_end_user.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-3">
+      <h3>配送先</h3>
+    </div>
+    <div class="col-3">
+      <%= link_to "一覧を見る",addresses_path, class:"btn btn-primary px-5" %>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-3">
+      <h3>注文履歴</h3>
+    </div>
+    <div class="col-3">
+      <%= link_to "一覧を見る",root_path, class:"btn btn-primary px-5" %>
+    </div>
+  </div>
+</div>

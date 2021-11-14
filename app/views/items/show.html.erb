@@ -1,0 +1,31 @@
+<div class="container mx-auto my-5 px-sm-0">
+  <div class="row py-5">
+    <div class="col-5 offset-1">
+      <%= attachment_image_tag @item, :image, :fill, 560, 280, format:"jpeg",fallback:"no_products_found.png", size:"400x200", class:"attachment-image" %>
+    </div>
+
+    <div class="col-5 offset-1">
+      <h1><%= @item.name %> </h1>
+
+      <div class="mt-4 mb-5">
+        <p style="font-size: 20px"><%= @item.explanation %></p>
+      </div>
+
+      <div class="price-container">
+        <p><span class="price font-weight-bold">¥ <%= @item.price.to_s(:delimited) %></span> (税込)</p>
+      </div>
+
+      <%= form_with model: @cart_item, url: cart_items_path, method: "post", local: true do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id  %>
+        <div class="row my-5">
+          <div class="col-4">
+            <%= f.number_field :amount ,placeholder: "個数選択" %>
+          </div>
+          <div class="col-4 offset-2">
+            <%= f.submit "カートに入れる", class:"btn btn-success px-4" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

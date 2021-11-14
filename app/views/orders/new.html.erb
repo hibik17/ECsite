@@ -1,0 +1,90 @@
+<div class="container mx-auto px-sm-0">
+
+  <div class="row mt-5 my-5">
+    <div class="col-3 offset-2 text-center">
+      <div class="grey-box mb-auto">
+        <h2>注文情報入力</h2>
+      </div>
+    </div>
+    <%= @test %>
+  </div>
+
+  <%= form_with model: @order, url: confirm_order_path, local:true do |f| %>
+    <div class="row mt-4">
+      <h4 class="font-weight-bold">支払方法</h4>
+    </div>
+
+    <% Order.payment_methods.keys.map{|k| [Order.payment_methods_i18n[k], k]}.each do |ja_key_and_value| %>
+      <div class="row mx-5 my-2">
+        <div class="col">
+          <%= f.radio_button :payment_method, ja_key_and_value[1] %>
+          <%= ja_key_and_value[0] %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row mt-4 mb-3">
+      <h4 class="font-weight-bold">お届け先</h4>
+    </div>
+
+    <div class="row mx-5 my-3">
+      <div class="col">
+        <%= f.radio_button :destination, 0 %>ご自身の住所<br>
+        <div class="info-box px-2">
+          〒<%= current_end_user.zip_code %> <%= current_end_user.address %> <br>
+          <%= current_end_user.family_name %><%= current_end_user.first_name %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mx-5 my-3">
+      <div class="col">
+        <%= f.radio_button :destination, 1 %>登録済み住所から選択<br>
+        <div class="info-box px-2">
+          <%= f.select :address_id,current_end_user.addresses.collect{|a| [a.address_info ,a.id]} , include_blank: "--選択してください--" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mx-5 my-3">
+      <div class="col">
+        <%= f.radio_button :destination, 2 %>新しいお届け先<br>
+        <div class="info-box">
+          <div class="row px-2 py-2">
+            <div class="col-3">
+              郵便番号(ハイフンなし)
+            </div>
+            <div class="col">
+              <%= f.text_field :zip_code, autofocus:true, placeholder: "0000000" %>
+            </div>
+          </div>
+
+          <div class="row px-2 py-2">
+            <div class="col-3">
+              住所
+            </div>
+            <div class="col-7">
+              <%= f.text_field :address, autofocus:true, placeholder:"東京都渋谷区代々木神園町0-0", class:"full-width" %>
+            </div>
+          </div>
+
+          <div class="row px-2 py-2">
+            <div class="col-3">
+              宛名
+            </div>
+            <div class="col">
+              <%= f.text_field :address_name, autofocus:true, placeholder:"令和道子" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col d-flex justify-content-center">
+        <%= f.submit "確認画面に進む", class:"btn btn-primary px-3" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
