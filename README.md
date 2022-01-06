@@ -3,7 +3,8 @@
 ## auther
 - hibik17
 
-## ERdiagram
+## UI・UXdesign
+https://www.figma.com/file/f4PVEoECcZrva1uDW505tr/ECsite-UIUX?node-id=0%3A1
 
 ## Description
 
