@@ -7,11 +7,11 @@
 
 ## Description
 
-ケーキ屋がインターネットで自身の商品を売るための、EC サイトを実装いたしました。
+総合ECサイト
 
 ## launguage
 
-- Ruby on rails (5.2.8)
+- Ruby on rails (5.2.6)
 - HTML&CSS
 - Javascript
 
